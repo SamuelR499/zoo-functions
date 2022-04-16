@@ -8,16 +8,11 @@ function getEmployeeByName(employeeName) {
   if (employeeName === undefined) {
     return {};
   }
-
-  const findEmploye = employees.find((trabaiador) => {
-    if (trabaiador.firstName === employeeName || trabaiador.lastName === employeeName) {
-      return trabaiador;
-    }
-    return false;
-  });
-  return findEmploye;
+  return employees.find(
+    (trabaiador) => trabaiador.firstName === employeeName || trabaiador.lastName === employeeName,
+  );
 }
 
-console.log(getEmployeeByName('e'));
+// console.log(getEmployeeByName());
 
 module.exports = getEmployeeByName;
