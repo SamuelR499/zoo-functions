@@ -6,20 +6,29 @@ const vazioFemaleTrue = species.reduce((acc, specie) => {
   if (Object.keys(acc).includes(specie.location)) {
     acc[specie.location].push(specie.name);
   } else {
-    acc[specie.location] = [].push(specie.name);
+    acc[specie.location] = [specie.name];
   }
   return acc;
-}, { NE: [], NW: [], SE: [], SW: [] });
-// const includesName =
-
+}, {});
+const includesName = species.reduce((acc, specie) => {
+  if (Object.keys(acc).includes(specie.location)) {
+    acc[specie.location].push(
+      { [specie.name]: specie.residents.map((resident) => resident.name) },
+    );
+  } else {
+    acc[specie.location] = [{ [specie.name]: specie.residents.map((resident) => resident.name) }];
+  }
+  return acc;
+}, {});
 function getAnimalMap(options) {
   // seu código aqui
   if (!options || options.sex === 'female' || options.sorted === true) {
     return vazioFemaleTrue;
   }
-  // if (options.includeNames === true) {
-
-  // }
+  if (options.includeNames === true) {
+    return includesName;
+  }
 }
-console.log(getAnimalMap());
+console.log(getAnimalMap({ includeNames: true }).NE);
+
 module.exports = getAnimalMap;
