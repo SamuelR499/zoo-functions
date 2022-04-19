@@ -1,7 +1,6 @@
 const data = require('../data/zoo_data');
 
-const { hours, species } = data;
-
+// const { hours, species } = data;
 // const exhibition = species.reduce((acc, specie) => {
 //   if (Object.keys(acc).includes(specie.location)) {
 //     acc[specie.location].push(
@@ -12,10 +11,9 @@ const { hours, species } = data;
 //   }
 //   return acc;
 // }, {});
-
 function getSchedule(scheduleTarget) {
   // seu código aqui
-  return exhibition;
+  // return exhibition;
 }
 console.log(getSchedule());
 module.exports = getSchedule;
